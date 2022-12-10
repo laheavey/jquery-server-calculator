@@ -3,21 +3,23 @@ $(document).ready(onReady);
 const calcEntry = {};
 
 function onReady () {
-    $('#equalsButton').on('click', postToServer);
+    $('#equalsButton').on('click', addValues);
     $('.operatorButton').on('click', addOperator);
     // getFromServer();
     $('#clearButton').on('click', clearInputFields);
 }
 
 function addValues() {
-    // console.log('hi!');
-    calcEntry.valueOne = $('#valueOne').val();
-    calcEntry.valueTwo = $('#valueTwo').val();
-
-    // console.log(calculatorEntry);
-    // console.log(calculatorEntry.valueOne);
-    // console.log(calculatorEntry.valueTwo);
-    // console.log(calculatorEntry.operator);
+    if ($('#valueOne').val() && $('#valueTwo').val()) {
+        calcEntry.valueOne = $('#valueOne').val();
+        calcEntry.valueTwo = $('#valueTwo').val();
+        postToServer();
+    } else if ($('#valueOne').val() == 0){
+        alert('Please enter a number into the Value One box.');
+    } else if ($('#valueTwo').val() == 0){
+        alert('Please enter a number into the Value Two box.');
+    } else {
+    };    
 }
 
 function addOperator() {
@@ -27,7 +29,7 @@ function addOperator() {
 }
 
 function postToServer () {
-    addValues();
+    // addValues();
 
     $.ajax({
         url: '/calcEntry',
