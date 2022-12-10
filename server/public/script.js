@@ -1,50 +1,51 @@
 $(document).ready(onReady);
 
-const calculatorEntry = {};
+const calcEntry = {};
 
 function onReady () {
     $('#equalsButton').on('click', postToServer);
-    $('.operatorButton').on('click', objectifyOperator);
+    $('.operatorButton').on('click', addOperator);
     getFromServer();
     $('#clearButton').on('click', clearInputFields);
 }
 
-function objectifyInput() {
+function addValues() {
     // console.log('hi!');
-    calculatorEntry.valueOne = $('#valueOne').val();
-    calculatorEntry.valueTwo = $('#valueTwo').val();
-    console.log(calculatorEntry);
-    console.log(calculatorEntry.valueOne);
-    console.log(calculatorEntry.valueTwo);
-    console.log(calculatorEntry.operator);
+    calcEntry.valueOne = $('#valueOne').val();
+    calcEntry.valueTwo = $('#valueTwo').val();
+
+    // console.log(calculatorEntry);
+    // console.log(calculatorEntry.valueOne);
+    // console.log(calculatorEntry.valueTwo);
+    // console.log(calculatorEntry.operator);
 }
 
-function objectifyOperator() {
-    calculatorEntry.operator = $(this).html();
+function addOperator() {
+    calcEntry.operator = $(this).text();
     // console.log(calculatorEntry);
     // console.log(calculatorEntry.operator);
 }
 
 function postToServer () {
-    objectifyInput();
+    addValues();
 
     $.ajax({
-        url: '/calculatorEntry',
+        url: '/calcEntry',
         method: 'POST',
-        data: calculatorEntry
+        data: calcEntry
     }).then((response) => {
-        // console.log('POST /calculatorEntry:', response)
+        console.log('POST /calcEntry:', response)
     })
 
+    getFromServer();
 }
 
 function getFromServer(){
     $.ajax({
-        url:'/calculatorHistory',
+        url:'/calcHistory',
         method: 'GET',
-    }).then((calculatorHistory) => {
-        console.log('Server sent: ', calculatorHistory)
-
+    }).then((response) => {
+        console.log('Server sent: ', response)
     })
 }
 
