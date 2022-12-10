@@ -7,7 +7,7 @@
     `Click handler to grab inputs based on button, add new key/value pair to id operation`
 
 3. ✅ Bundle the input up in an object
-4. Send this object to the server via a POST.
+4. ✅ Send this object to the server via a POST.
 5. Create a 'C' button that will clear the user input fields.
     `<button id="clear">C</button>`
     `$(#clear).empty();`

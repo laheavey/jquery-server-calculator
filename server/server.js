@@ -6,11 +6,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended:true }));
 
 const calculatorHistory = [
-    {
-    valueOne: '2',
-    valueTwo: '1',
-    operator: '+'
-    }
+    // {
+    // valueOne: '2',
+    // valueTwo: '1',
+    // operator: '+'
+    // }
 ];
 
 app.listen(PORT, () => { 

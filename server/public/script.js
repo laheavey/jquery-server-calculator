@@ -5,6 +5,7 @@ const calculatorEntry = {};
 function onReady () {
     $('#equalsButton').on('click', postToServer);
     $('.operatorButton').on('click', objectifyOperator);
+    getFromServer();
 }
 
 function objectifyInput() {
@@ -29,7 +30,7 @@ function postToServer () {
     objectifyInput();
 
     $.ajax({
-        URL: '/calculatorEntry',
+        url: '/calculatorEntry',
         method: 'POST',
         data: calculatorEntry
     }).then((response) => {
