@@ -5,7 +5,7 @@ const PORT = 3000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended:true }));
 
-const calcHistory = [];
+let calcHistory = [];
 let newCalcEntry = {};
 
 app.listen(PORT, () => { 
@@ -23,6 +23,11 @@ app.post('/calcEntry', (req,res) => {
 
 app.get('/calcHistory', (req,res) => {
 	res.send(calcHistory);
+})
+
+app.delete('/calcErase', (req,res) => {
+    calcHistory = [];
+    console.log('DELETE /calcErase');
 })
 
 function evaluateInputs () {

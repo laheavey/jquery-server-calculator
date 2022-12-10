@@ -13,22 +13,23 @@
     <h1>Weekend Challenge: jQuery Server-Side Calculator</h1>
     <main>
         <section class="calculatorInput">
-            <input id="valueOne" placeholder="Value One" required>
+            <input id="valueOne" placeholder="Value One">
             <button class ="operatorButton" id="additionButton">+</button>
             <button class ="operatorButton" id="subtractionButton">-</button>
             <button class ="operatorButton" id="multiplicationButton">*</button>
             <button class ="operatorButton" id="divisionButton">/</button>
-            <input id="valueTwo" placeholder="Value Two" required>
+            <input id="valueTwo" placeholder="Value Two">
             <button id="equalsButton">=</button>
             <button id="clearButton">C</button>
         </section>
-        <section class="calculatorOutput">
-            <h3>Answer: <span id="calculatedAnswer"></span></h3>
+        <section>
+            <h3>Answer: <span class="reset"></span></h3>
             <p>
                 <h5>Calculation History:</h5>
-                <ul>
+                <ul class="reset">
                     <!-- Past calculations will go here -->
                 </ul>
+                <button id="clearHistoryButton">Clear All History</button>
             </p>
         </section>
     </main> 

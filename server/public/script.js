@@ -7,6 +7,7 @@ function onReady () {
     $('.operatorButton').on('click', addOperator);
     // getFromServer();
     $('#clearButton').on('click', clearInputFields);
+    $('#clearHistoryButton').on('click', clearServerHistory);
 }
 
 function addValues() {
@@ -14,6 +15,7 @@ function addValues() {
         calcEntry.valueOne = $('#valueOne').val();
         calcEntry.valueTwo = $('#valueTwo').val();
         postToServer();
+        $('.operatorButton').css("background-color", "");
     } else if ($('#valueOne').val() == 0){
         alert('Please enter a number into the Value One box.');
     } else if ($('#valueTwo').val() == 0){
@@ -24,8 +26,7 @@ function addValues() {
 
 function addOperator() {
     calcEntry.operator = $(this).text();
-    // console.log(calculatorEntry);
-    // console.log(calculatorEntry.operator);
+    $(this).css("background-color", "yellow");
 }
 
 function postToServer () {
@@ -47,15 +48,16 @@ function getFromServer(){
         url:'/calcHistory',
         method: 'GET',
     }).then((response) => {
-        console.log('Server sent: ', response)
+
+        // Appends most recent calculation answer
         $('span').empty();
         $('span').append(`${response[response.length-1].answer}`)
-
+        
+        // Appends history of calculcations
         $('ul').empty();
         for (let objects of response){
-
             $('ul').append(`
-            <li>${objects.valueOne} ${objects.operator} ${objects.valueTwo} = ${objects.answer}</li>
+            <li class="calcHistory">${objects.valueOne} ${objects.operator} ${objects.valueTwo} = ${objects.answer}</li>
             `)
         }
     })
@@ -65,4 +67,32 @@ function clearInputFields() {
     $('#valueOne').val('');
     $('#valueTwo').val('');
 }
+
+function clearServerHistory() {
+    $.ajax({
+        url:'/calcErase',
+        method: 'DELETE',
+    })
+
+    $('.reset').empty();
+    $('#valueOne').val('');
+    $('#valueTwo').val('');
+}
+
+// function runAgain(){
+//     $('#valueOne').val('$objects.valueOne');
+//     $('#valueTwo').val('$objects.ValueTwo');
+//     $('span').append(`${response[response.length-1].answer}`)
+//     if (objects.operator === '+'){
+//         $('#additionButton').css("background-color", "yellow");
+//     } else if (objects.operator === '-'){
+//         $('#subtractionButton').css("background-color", "yellow");
+//     } else if (objects.operator === '*'){
+//         $('#multiplicationButton').css("background-color", "yellow");
+//     } else if (objects.operator === '/'){
+//         $('#divisionButton').css("background-color", "yellow");
+//     } else {
+//         objects.answer = false;
+//     }
+// }
 
