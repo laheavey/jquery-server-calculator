@@ -8,7 +8,7 @@
 
 3. ✅ Bundle the input up in an object
 4. ✅ Send this object to the server via a POST.
-5. Create a 'C' button that will clear the user input fields.
+5. ✅ Create a 'C' button that will clear the user input fields.
     `<button id="clear">C</button>`
     `$(#clear).empty();`
 

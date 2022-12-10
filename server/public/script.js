@@ -6,6 +6,7 @@ function onReady () {
     $('#equalsButton').on('click', postToServer);
     $('.operatorButton').on('click', objectifyOperator);
     getFromServer();
+    $('#clearButton').on('click', clearInputFields);
 }
 
 function objectifyInput() {
@@ -16,8 +17,6 @@ function objectifyInput() {
     console.log(calculatorEntry.valueOne);
     console.log(calculatorEntry.valueTwo);
     console.log(calculatorEntry.operator);
-    $('#valueOne').val('');
-    $('#valueTwo').val('');
 }
 
 function objectifyOperator() {
@@ -34,7 +33,7 @@ function postToServer () {
         method: 'POST',
         data: calculatorEntry
     }).then((response) => {
-        console.log('POST /calculatorEntry sent:', response)
+        // console.log('POST /calculatorEntry:', response)
     })
 
 }
@@ -47,4 +46,9 @@ function getFromServer(){
         console.log('Server sent: ', calculatorHistory)
 
     })
+}
+
+function clearInputFields() {
+    $('#valueOne').val('');
+    $('#valueTwo').val('');
 }
