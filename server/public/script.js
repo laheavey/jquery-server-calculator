@@ -51,10 +51,9 @@ function findValueTwo(){
 }
 
 // Evaluates the text in each value span and adds it as a 
-// key/value pair. Depending on what the pairs contain, the
-// function will either flip the calculator, post the object
-// to the server, turn a number into a percent, or alert if the
-// calculation is invalid.
+// key/value pair. Depending on the values, this will either 
+// flip the calculator, post the object to the server, or 
+// alert if the calculation is invalid.
 function evaluateEntry() {
     calcEntry.valueOne = $('#valueOne').text();
     calcEntry.valueTwo = $('#valueTwo').text();
