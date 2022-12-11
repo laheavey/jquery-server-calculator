@@ -4,11 +4,15 @@ const calcEntry = {};
 
 function onReady () {
     $('.numberButtons').addClass("valueOne");
+    getFromServer();
 
     $('.calculatorInput').on('click', '.valueOne', findValueOne);
     $('.operatorButtons').on('click', findOperator);
     $('.calculatorInput').on('click', '.valueTwo', findValueTwo);
     $('#equalsButton').on('click', evaluateEntry);
+
+    $('#negPosButton').on('click', negativePositiveSwap);
+    $('#percentButton').on('click', evaluateEntry);
 
     $('#clearButton').on('click', clearInputFields);
     $('#clearHistoryButton').on('click', clearServerHistory);
@@ -24,6 +28,7 @@ function findOperator() {
     calcEntry.operator = $(this).text();
 
     $(this).css("background-color", "yellow");
+    $('.operatorButtons').prop("disabled", true)
 
     $('.numberButtons').removeClass("valueOne");
     $('.numberButtons').addClass("valueTwo");
@@ -41,9 +46,15 @@ function evaluateEntry() {
     if (calcEntry.valueOne && calcEntry.valueTwo && calcEntry.operator) {
         postToServer();
         clearInputFields();
+    } else if ($(this).text() === '%' && calcEntry.valueOne){
+        calcEntry.operator = $(this).text();
+        calcEntry.valueTwo = "";
+        postToServer();
+        clearInputFields();
+        $('.operatorButtons').prop("disabled", true)  
     } else {
         alert('Invalid Calculation');
-        clearInputFields();
+        clearInputFields()
     }
     // FROM BASE GOALS:
     // if ($('#valueOne').val() && $('#valueTwo').val()) {
@@ -75,38 +86,49 @@ function getFromServer(){
     }).then((response) => {
 
         // Appends most recent calculation answer
-        $('#answer').empty();
-        $('#answer').append(`${response[response.length-1].answer}`)
+        $('#valueOne').append(`${response[response.length-1].answer}`)
         
         // Appends history of calculcations
         $('ul').empty();
         for (let objects of response){
             $('ul').append(`
-            <li class="calcHistory">${objects.valueOne} ${objects.operator} ${objects.valueTwo} = ${objects.answer}</li>
+            <li class ="mathText">${objects.valueOne} ${objects.operator} ${objects.valueTwo} = ${objects.answer}</li>
             `)
         }
     })
 }
 
 function clearInputFields() {
-    $('#valueOne').empty();
-    $('#operatorValue').empty();
-    $('#valueTwo').empty();
+    $('span').empty();
 
     $('.numberButtons').removeClass("valueTwo");
     $('.numberButtons').addClass("valueOne");
 
+    $('.operatorButtons').prop("disabled", false);
     $('.operatorButtons').css("background-color", "");
 }
 
 function clearServerHistory() {
-    $('#answer').empty();
-    clearInputFields();
+    clearInputFields()
+    $('.calcHistory').empty();
 
     $.ajax({
         url:'/calcErase',
         method: 'DELETE',
     })
+}
+
+function negativePositiveSwap() {
+    if ($('#valueTwo').text()){
+        let newTwo = parseInt($('#valueTwo').text()) * (-1);
+        $('#valueTwo').empty();
+        $('#valueTwo').append(newTwo);
+    } 
+    else {
+        let newOne = parseInt($('#valueOne').text()) * (-1);
+        $('#valueOne').empty();
+        $('#valueOne').append(newOne);
+    }
 }
 
 // function runAgain(){

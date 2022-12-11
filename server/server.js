@@ -39,6 +39,8 @@ function evaluateInputs () {
         newCalcEntry.answer = parseInt(newCalcEntry.valueOne) * parseInt(newCalcEntry.valueTwo);
     } else if (newCalcEntry.operator === '/'){
         newCalcEntry.answer = parseInt(newCalcEntry.valueOne) / parseInt(newCalcEntry.valueTwo);
+    } else if (newCalcEntry.operator === '%'){
+        newCalcEntry.answer = parseInt(newCalcEntry.valueOne) * 0.01;   
     } else {
         newCalcEntry.answer = false;
     }

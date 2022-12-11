@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+}
+
+h1 {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    padding-left: .75rem;
+
+    font-family: Optima, sans-serif;
+
+    background-color: #F0F0F0;
+}
+
+main {
+    display: flex;
+    /* justify-content: space-around; */
+
+    vertical-align: middle;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 25px;
+    background-color: ;
+}
+
+.grid {
+    display: grid;
+    align-self: center;
+    width: 25rem;
+    max-width: 25rem;
+    height: 30rem;
+    max-height: 30rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    padding: 1rem;
+    margin: 1rem;
+
+    outline: #F39291 1px solid;
+    border-radius: 25px;
+    background-color:#F7B6B5;
+    box-shadow: 0 4px 18px 0 #d6ccc2;
+
+    /* transform: rotate(180deg); */
+}
+
+#superValue {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    
+    text-align: right;
+    font-size: xx-large;
+}
+
+.mathText {
+    background-color:#D0DCDA;
+    outline: #729790 1px solid;
+    border-radius: 5px;
+    color: #2D6B76;
+
+    font-family: "Zen Dots", Courier, monospace;
+}
+
+span {
+    padding-right: 2px;
+}
+
+#zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.calculatorOutput {
+    width: 25rem;
+    max-width: 25rem;
+    height: 30rem;
+    max-height: 30rem;
+    /* overflow: auto; */
+    margin: 1rem;
+    padding: 1rem;
+}
+
+h5 {
+    font-family: Optima, sans-serif;
+    font-size:x-large;
+
+    display: inline-block;
+
+    margin-top: 1em;
+    margin-left: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+output {
+    overflow: auto;
+}
+
+ul {
+    max-height: 25.7rem;
+    padding-left: 0px;
+    margin-top: 0rem;
+    list-style: none;
+    font-size: large;
+
+    overflow: auto;
+
+    
+}
+
+li {
+    box-shadow: 0 2px 5px 0 #d6ccc2;
+    margin: 1rem;
+    padding-left: 4px;
+}
+
+#clearHistoryButton {
+
+    float:right;
+    margin-right: 1rem;
+    margin-top: 1.75rem;
+
+}
+
+* {
+    /* outline: red 1px solid; */
+  }
+
+/* div {
+ display: flex;
+} */

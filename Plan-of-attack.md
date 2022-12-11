@@ -33,7 +33,7 @@
 - ✅ Only allow the POST call to happen if all necessary input is ready.
     `add required to input tags? and/or alert()`
 
-- Allow a user to clear the history by clicking on a button. Technically this shouldn't be a GET or a POST. Look into making a DELETE request!
+- ✅ Allow a user to clear the history by clicking on a button. Technically this shouldn't be a GET or a POST. Look into making a DELETE request!
 
 - Allow a user to click on an entry in the History list to re-run that calculation. This should display the answer on the calculator interface like a normal calculation.
     `click handler; Make previous answers into buttons? $(this)?`

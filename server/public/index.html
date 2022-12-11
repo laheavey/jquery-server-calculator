@@ -7,44 +7,55 @@
     <script src="jquery.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Dots">
     <title>Document</title>
 </head>
 <body>
-    <h1>Weekend Challenge: jQuery Server-Side Calculator</h1>
+    <header>
+        <h1>Weekend Challenge: jQuery Server-Side Calculator</h1>
+    </header>
     <main>
-        <section class="calculatorInput">
-            <h2 id="superValue">
+        <section class="calculatorInput grid">
+            <h2 id="superValue" class="mathText">
                 <span id="valueOne"></span>
                 <span id="operatorValue"></span>
                 <span id="valueTwo"></span>
-            </h2><br>
-            <button class ="numberButtons">1</button>
-            <button class ="numberButtons">2</button>
-            <button class ="numberButtons">3</button>
-            <button class ="numberButtons">4</button>
-            <button class ="numberButtons">5</button>
-            <button class ="numberButtons">6</button>
+            </h2>
+            <button id="clearButton">C</button>
+            <button id="negPosButton">+/-</button>
+            <button id="percentButton">%</button>
+            <button class ="operatorButtons" id="divisionButton">/</button>
+
             <button class ="numberButtons">7</button>
             <button class ="numberButtons">8</button>
             <button class ="numberButtons">9</button>
-            <button class ="numberButtons">0</button>
-            <button class ="numberButtons">.</button>
-            <button class ="operatorButtons" id="additionButton">+</button>
-            <button class ="operatorButtons" id="subtractionButton">-</button>
             <button class ="operatorButtons" id="multiplicationButton">*</button>
-            <button class ="operatorButtons" id="divisionButton">/</button>
+
+            <button class ="numberButtons">4</button>
+            <button class ="numberButtons">5</button>
+            <button class ="numberButtons">6</button>
+            <button class ="operatorButtons" id="subtractionButton">-</button>
+
+            <button class ="numberButtons">1</button>
+            <button class ="numberButtons">2</button>
+            <button class ="numberButtons">3</button>
+            <button class ="operatorButtons" id="additionButton">+</button>
+
+            <button class ="numberButtons" id="zero">0</button>
+            <button class ="numberButtons">.</button>
             <button id="equalsButton">=</button>
-            <button id="clearButton">C</button>
+
         </section>
-        <section>
-            <h3>Answer: <span class="reset" id="answer"></span></h3>
-            <p>
-                <h5>Calculation History:</h5>
-                <ul class="reset">
+        <section class="calculatorOutput">
+            <div>
+                <h5>Calculation History</h5>
+                <button id="clearHistoryButton">Clear All</button>
+            </div>
+            <output>
+                <ul class="calcHistory">
                     <!-- Past calculations will go here -->
                 </ul>
-                <button id="clearHistoryButton">Clear All History</button>
-            </p>
+            </output>
         </section>
     </main> 
 </body>
