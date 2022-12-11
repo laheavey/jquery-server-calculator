@@ -1,10 +1,11 @@
 $(document).ready(onReady);
 
+// Empty object where all calculator inputs will live.
 const calcEntry = {};
 
 function onReady () {
-    $('.numberButtons').addClass("valueOne");
     getFromServer();
+    $('.numberButtons').addClass("valueOne");
 
     $('.calculatorInput').on('click', '.valueOne', findValueOne);
     $('.operatorButtons').on('click', findOperator);
@@ -18,11 +19,19 @@ function onReady () {
     $('#clearHistoryButton').on('click', clearServerHistory);
 }
 
+// Evaluates all number buttons pressed and displays them 
+// sequentially in the corresponding value span.
 function findValueOne(){
     let numberButtons = $(this).text();
     $('#valueOne').append(numberButtons)
 }
 
+// Grabs the operator pressed and displays it in the 
+// corresponding span. It changes the color of the operator 
+// pressed and disables the others. This function also removes
+// the class 'valueOne' from the number buttons and adds
+// 'valueTwo' to signal a different key/value pair for the
+// calcEntry object.
 function findOperator() {
     $('#operatorValue').append($(this).text())
     calcEntry.operator = $(this).text();
@@ -34,11 +43,18 @@ function findOperator() {
     $('.numberButtons').addClass("valueTwo");
 }
 
+// Evaluates all number buttons pressed and displays them 
+// sequentially in the corresponding value span.
 function findValueTwo(){
     let numberButtons = $(this).text();
     $('#valueTwo').append(numberButtons)
 }
 
+// Evaluates the text in each value span and adds it as a 
+// key/value pair. Depending on what the pairs contain, the
+// function will either flip the calculator, post the object
+// to the server, turn a number into a percent, or alert if the
+// calculation is invalid.
 function evaluateEntry() {
     calcEntry.valueOne = $('#valueOne').text();
     calcEntry.valueTwo = $('#valueTwo').text();
@@ -72,6 +88,7 @@ function evaluateEntry() {
     // };    
 }
 
+// Posts the calcEntry object to the server.
 function postToServer () {
     $.ajax({
         url: '/calcEntry',
@@ -81,6 +98,8 @@ function postToServer () {
     getFromServer();
 }
 
+// Receives the calcHistory array from the server, and
+// appends the value of each object to the DOM. 
 function getFromServer(){
     $.ajax({
         url:'/calcHistory',
@@ -100,6 +119,8 @@ function getFromServer(){
     })
 }
 
+// Empties all spans, resets valueOne/valueTwo classes for
+// number buttons, resets color & enables operator buttons.
 function clearInputFields() {
     $('span').empty();
 
@@ -110,6 +131,7 @@ function clearInputFields() {
     $('.operatorButtons').css("background-color", "");
 }
 
+// Clears server history.
 function clearServerHistory() {
     clearInputFields()
     $('.calcHistory').empty();
@@ -120,6 +142,7 @@ function clearServerHistory() {
     })
 }
 
+// Turns value from a negative to a positive, and vice-versa.
 function negativePositiveSwap() {
     if ($('#valueTwo').text()){
         let newTwo = parseInt($('#valueTwo').text()) * (-1);
@@ -133,31 +156,17 @@ function negativePositiveSwap() {
     }
 }
 
+// Flips the calculator when '01134' is entered as valueOne
+// and the equals button is pressed.
 function doAFlip() {
     $('.calculatorInput').addClass('doAFlip');
     $('#valueOne').prepend('(: i')
     $('#clearButton').on('click', undoAFlip);
 }
 
+// Flips the calculator back.
 function undoAFlip() {
     $('.calculatorInput').removeClass('doAFlip');
     clearInputFields();
 }
-
-// function runAgain(){
-//     $('#valueOne').val('$objects.valueOne');
-//     $('#valueTwo').val('$objects.ValueTwo');
-//     $('span').append(`${response[response.length-1].answer}`)
-//     if (objects.operator === '+'){
-//         $('#additionButton').css("background-color", "yellow");
-//     } else if (objects.operator === '-'){
-//         $('#subtractionButton').css("background-color", "yellow");
-//     } else if (objects.operator === '*'){
-//         $('#multiplicationButton').css("background-color", "yellow");
-//     } else if (objects.operator === '/'){
-//         $('#divisionButton').css("background-color", "yellow");
-//     } else {
-//         objects.answer = false;
-//     }
-// }
 
