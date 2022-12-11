@@ -27,7 +27,7 @@ function findOperator() {
     $('#operatorValue').append($(this).text())
     calcEntry.operator = $(this).text();
 
-    $(this).css("background-color", "yellow");
+    $(this).css("background-color", "#F3C0B9"); // CHANGE
     $('.operatorButtons').prop("disabled", true)
 
     $('.numberButtons').removeClass("valueOne");
@@ -43,7 +43,9 @@ function evaluateEntry() {
     calcEntry.valueOne = $('#valueOne').text();
     calcEntry.valueTwo = $('#valueTwo').text();
 
-    if (calcEntry.valueOne && calcEntry.valueTwo && calcEntry.operator) {
+    if (calcEntry.valueOne == "01134") {
+        doAFlip(); //NEW
+    } else if (calcEntry.valueOne && calcEntry.valueTwo && calcEntry.operator) {
         postToServer();
         clearInputFields();
     } else if ($(this).text() === '%' && calcEntry.valueOne){
@@ -129,6 +131,17 @@ function negativePositiveSwap() {
         $('#valueOne').empty();
         $('#valueOne').append(newOne);
     }
+}
+
+function doAFlip() {
+    $('.calculatorInput').addClass('doAFlip');
+    $('#valueOne').prepend('(: i')
+    $('#clearButton').on('click', undoAFlip);
+}
+
+function undoAFlip() {
+    $('.calculatorInput').removeClass('doAFlip');
+    clearInputFields();
 }
 
 // function runAgain(){
