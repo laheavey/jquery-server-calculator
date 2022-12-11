@@ -27,7 +27,7 @@
 
 ## Stretch Goals
 
-- Convert the interface to look and behave like a calculator as shown below.
+- ✅ Convert the interface to look and behave like a calculator as shown below.
     `CSS Grid, inside float box?`
 
 - ✅ Only allow the POST call to happen if all necessary input is ready.

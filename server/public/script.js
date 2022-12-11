@@ -3,43 +3,68 @@ $(document).ready(onReady);
 const calcEntry = {};
 
 function onReady () {
-    $('#equalsButton').on('click', addValues);
-    $('.operatorButton').on('click', addOperator);
-    // getFromServer();
+    $('.numberButtons').addClass("valueOne");
+
+    $('.calculatorInput').on('click', '.valueOne', findValueOne);
+    $('.operatorButtons').on('click', findOperator);
+    $('.calculatorInput').on('click', '.valueTwo', findValueTwo);
+    $('#equalsButton').on('click', evaluateEntry);
+
     $('#clearButton').on('click', clearInputFields);
     $('#clearHistoryButton').on('click', clearServerHistory);
 }
 
-function addValues() {
-    if ($('#valueOne').val() && $('#valueTwo').val()) {
-        calcEntry.valueOne = $('#valueOne').val();
-        calcEntry.valueTwo = $('#valueTwo').val();
-        postToServer();
-        $('.operatorButton').css("background-color", "");
-    } else if ($('#valueOne').val() == 0){
-        alert('Please enter a number into the Value One box.');
-    } else if ($('#valueTwo').val() == 0){
-        alert('Please enter a number into the Value Two box.');
-    } else {
-    };    
+function findValueOne(){
+    let numberButtons = $(this).text();
+    $('#valueOne').append(numberButtons)
 }
 
-function addOperator() {
+function findOperator() {
+    $('#operatorValue').append($(this).text())
     calcEntry.operator = $(this).text();
+
     $(this).css("background-color", "yellow");
+
+    $('.numberButtons').removeClass("valueOne");
+    $('.numberButtons').addClass("valueTwo");
+}
+
+function findValueTwo(){
+    let numberButtons = $(this).text();
+    $('#valueTwo').append(numberButtons)
+}
+
+function evaluateEntry() {
+    calcEntry.valueOne = $('#valueOne').text();
+    calcEntry.valueTwo = $('#valueTwo').text();
+
+    if (calcEntry.valueOne && calcEntry.valueTwo && calcEntry.operator) {
+        postToServer();
+        clearInputFields();
+    } else {
+        alert('Invalid Calculation');
+        clearInputFields();
+    }
+    // FROM BASE GOALS:
+    // if ($('#valueOne').val() && $('#valueTwo').val()) {
+    //     calcEntry.valueOne = $('#valueOne').val();
+    //     calcEntry.valueTwo = $('#valueTwo').val();
+    //     postToServer();
+    //     $('.operatorButton').css("background-color", "");
+    // } else if ($('#valueOne').val() == 0){
+    //     alert('Please enter a number into the Value One box.');
+    // } else if ($('#valueTwo').val() == 0){
+    //     alert('Please enter a number into the Value Two box.');
+    // } else {
+    // };    
 }
 
 function postToServer () {
-    // addValues();
-
     $.ajax({
         url: '/calcEntry',
         method: 'POST',
         data: calcEntry
-    }).then((response) => {
-        // console.log('POST /calcEntry:', response)
     })
-
     getFromServer();
 }
 
@@ -50,8 +75,8 @@ function getFromServer(){
     }).then((response) => {
 
         // Appends most recent calculation answer
-        $('span').empty();
-        $('span').append(`${response[response.length-1].answer}`)
+        $('#answer').empty();
+        $('#answer').append(`${response[response.length-1].answer}`)
         
         // Appends history of calculcations
         $('ul').empty();
@@ -64,19 +89,24 @@ function getFromServer(){
 }
 
 function clearInputFields() {
-    $('#valueOne').val('');
-    $('#valueTwo').val('');
+    $('#valueOne').empty();
+    $('#operatorValue').empty();
+    $('#valueTwo').empty();
+
+    $('.numberButtons').removeClass("valueTwo");
+    $('.numberButtons').addClass("valueOne");
+
+    $('.operatorButtons').css("background-color", "");
 }
 
 function clearServerHistory() {
+    $('#answer').empty();
+    clearInputFields();
+
     $.ajax({
         url:'/calcErase',
         method: 'DELETE',
     })
-
-    $('.reset').empty();
-    $('#valueOne').val('');
-    $('#valueTwo').val('');
 }
 
 // function runAgain(){
