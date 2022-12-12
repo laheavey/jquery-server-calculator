@@ -10,10 +10,12 @@ I began by thinking through only the base goals given and determining what steps
 ## Screen Shots
 
 ### Base Mode 
+---
 ![Base Mode Calculator](images/base-mode-screenshot.png)
 ---
 
 ### Final Product
+---
 ![Final Calculator](images/final-screenshot.png)
 ---
 
@@ -29,12 +31,14 @@ Beyond basic math...
 ---
 
 > Built with Javascript, jQuery, AJAX, HTML & CSS
+
 > Prerequisites:
 > - Node.js
 > - Express
 > - Body Parser
+
 > License:[Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-> "Zen Dots" Google Font used for displayed numbers & calculations.
+> - "Zen Dots" Google Font used for displayed numbers & calculations.
 
 ## Notes
 
