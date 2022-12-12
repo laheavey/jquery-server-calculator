@@ -4,9 +4,7 @@ Duration: 2 Day Sprint
 
 Our prompt for this project was to create a calculator that would store both logic and history on a server.  
 
-I began by thinking through only the base goals given and determining what steps I *might* take for each requirement. After weighing the pros and cons of my options, I plotted out a general plan. Once I'd accomplished base mode, I did the same for the stretch goals.
-
-> [Game Plan](game-plan.md)
+I began by thinking through only the base goals given and determining what steps I *might* take for each requirement. After weighing the pros and cons of my options, I plotted out a general plan. Once I'd accomplished base mode, I did the same for the stretch goals. **[Game Plan](game-plan.md)**
 
 
 ## Screen Shots
@@ -19,11 +17,6 @@ I began by thinking through only the base goals given and determining what steps
 ![Final Calculator](images/final-screenshot.png)
 ---
 
-
-## Prerequisites
-
-
-
 ## Usage
 
 This is a calculator - hopefully a lot like one you'd use in real life! Press a combination of numbers & operators, and then press the equals sign to calculate the results. 
@@ -31,19 +24,17 @@ This is a calculator - hopefully a lot like one you'd use in real life! Press a 
 Beyond basic math...
 - The "+/-" button will flip your number from positive/negative
 - The "%" button will display the value of the given integers as a percent
+- For a fun surprise, try typing '01134' and pressing '='! :)
 
-
-**For a fun surprise...**
-Try typing '01134' and '=' into the calculator! :)
+---
 
 > Built with Javascript, jQuery, AJAX, HTML & CSS
->> **Prerequisites:** 
->>> - Node.js
->>> - Express
->>> - Body Parser
-
->> **License:** [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
->>> "Zen Dots" Google Font used for displayed numbers & calculations.
+> Prerequisites:
+> - Node.js
+> - Express
+> - Body Parser
+> License:[Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+> "Zen Dots" Google Font used for displayed numbers & calculations.
 
 ## Notes
 
