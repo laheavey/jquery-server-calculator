@@ -6,25 +6,23 @@ Our prompt for this project was to create a calculator that would store both log
 
 I began by thinking through only the base goals given and determining what steps I *might* take for each requirement. After weighing the pros and cons of my options, I plotted out a general plan. Once I'd accomplished base mode, I did the same for the stretch goals.
 
-[Game Plan](game-plan.md)
+> [Game Plan](game-plan.md)
 
 
 ## Screen Shots
 
-
+### Base Mode 
 ![Base Mode Calculator](images/base-mode-screenshot.png)
 ---
+
+### Final Product
 ![Final Calculator](images/final-screenshot.png)
----
-![Surprise Element - Flip!](images/final-flip-screenshot.png)
 ---
 
 
 ## Prerequisites
 
-* Node.js
-* Express
-* Body Parser
+
 
 ## Usage
 
@@ -38,15 +36,14 @@ Beyond basic math...
 **For a fun surprise...**
 Try typing '01134' and '=' into the calculator! :)
 
--
+> Built with Javascript, jQuery, AJAX, HTML & CSS
+>> **Prerequisites:** 
+>>> - Node.js
+>>> - Express
+>>> - Body Parser
 
-Built with:
-Javascript, jQuery, AJAX, HTML & CSS
-
-## License
-
-[Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-> "Zen Dots" Google Font used for displayed numbers & calculations.
+>> **License:** [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+>>> "Zen Dots" Google Font used for displayed numbers & calculations.
 
 ## Notes
 
