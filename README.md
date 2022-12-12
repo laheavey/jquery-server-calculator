@@ -1,53 +1,59 @@
-# PROJECT NAME
-Description
-Duration: 2 Week Sprint
+# jQuery Server Calculator
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it?
+Duration: 2 Day Sprint
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
+Our prompt for this project was to create a calculator that would store both logic and history on a server.  
 
-Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
+I began by thinking through only the base goals given and determining what steps I *might* take for each requirement. After weighing the pros and cons of my options, I plotted out a general plan. Once I'd accomplished base mode, I did the same for the stretch goals.
 
-To see the fully functional site, please visit: DEPLOYED VERSION OF APP
+[Game Plan](game-plan.md)
 
-## Screen Shot
+
+## Screen Shots
 Include one or two screen shots of your project here (optional). Remove if unused.
 
+---
+[Base Mode Calculator](images/base-mode-screenshot.png)]
+---
+[Final Calculator](images/final-screenshot.png)
+---
+[Surprise Element - Flip!](images/final-flip-screenshot.png)
+---
+
+
 ## Prerequisites
-Link to software that is required to install the app (e.g. node).
 
 Node.js
-List other prerequisites here
-## Installation
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
+Express
+Body Parser
 
-If your application has secret keys (for example -- Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the .env file.
-
-Create a database named your database name,
-The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
-Open up your editor of choice and run an npm install
-Run npm run server in your terminal
-Run npm run client in your terminal
-The npm run client command will open up a new browser tab for you!
 ## Usage
-How does someone use this application? Tell a user story here.
 
-xxx
-xxx
-xxx
-xxx
-xxx
-xxx
-Built With
-List technologies and frameworks here
+This is a calculator - hopefully a lot like one you'd use in real life! Press a combination of numbers & operators, and then press the equals sign to calculate the results. 
+
+Beyond basic math...
+- The "+/-" button will flip your number from positive/negative
+- The "%" button will display the value of the given integers as a percent
+
+**For a fun surprise...**
+Try typing '01134' and '=' into the calculator! :)
+
+---
+
+Built with:
+Javascript, jQuery, AJAX, HTML & CSS
 
 ## License
-MIT
 
-Note, include this only if you have a license file. GitHub will generate one for you if you want!
+[Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+> "Zen Dots" Google Font used for displayed numbers & calculations.
+
+## Notes
+
+I encountered a few different errors while working through each part of my plan, but I was able to solve each without much issue. 
+
+There were a couple of small things I would have liked to complete/fix, but I wound up letting them go. Having the calculator numbers sit in the lower right side of the screen, getting the historic calculations to populate on the screen when clicked... If I'd had another day I would have zhuzhed up the calculation history div a little more, too. 
 
 ## Acknowledgement
 Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. (Thank your people)
 
-## Support
-If you have suggestions or issues, please email me at youremail@whatever.com
