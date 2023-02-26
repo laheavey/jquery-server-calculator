@@ -1,29 +1,28 @@
 # jQuery Server Calculator
 
-Duration: 2 Day Sprint
+*Duration: 2 Day Sprint*
 
 Our prompt for this project was to create a calculator that would store both logic and history on a server.  
 
 I began by thinking through only the base goals given and determining what steps I *might* take for each requirement. After weighing the pros and cons of my options, I plotted out a general plan. Once I'd accomplished base mode, I did the same for the stretch goals. 
 
 
->**Built with** : Javascript, jQuery, AJAX, HTML & CSS
->
->**Prerequisites** : Node.js : Express : Body Parser
->
->**License** : [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) : "Zen Dots" Google Font used for displayed numbers & calculations.
+- **Built with** : Javascript, jQuery, AJAX, HTML & CSS
+- **Prerequisites** : Node.js, Express, Body Parser
+- **License** : [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) : "Zen Dots" Google Font used for displayed numbers & calculations.
 
 
 ## Screen Shots
 
-**Base Mode ↴**
+**Base Mode:**
+<p align="center">
+<img src="images/base-mode-screenshot.png" alt="Base Mode Calculator" width="800">
+</p>
 
-![Base Mode Calculator](images/base-mode-screenshot.png)
-
-
-**Final Product ↴**
-
-![Final Calculator](images/final-screenshot.png)
+**Final Product:**
+<p align="center">
+<img src="images/final-screenshot.png" alt="Final Calculator" width="800">
+</p>
 
 
 ## Usage
@@ -31,12 +30,12 @@ I began by thinking through only the base goals given and determining what steps
 This is a calculator - hopefully a lot like one you'd use in real life! Press a combination of numbers & operators, and then press the equals sign to calculate the results. 
 
 Beyond basic math...
-> The "+/-" button will flip your number from positive/negative
-> 
->The "%" button will display the value of the given integers as a percent
->
->For a fun surprise, try typing '01134' and pressing '='
-
+- The "+/-" button will flip your number from positive/negative
+- The "%" button will display the value of the given integers as a percent
+- For a fun surprise, try typing '01134' and pressing '='
+<p align="center">
+<img src="https://user-images.githubusercontent.com/110571190/221387638-126611a7-3776-4589-b8b1-d16416e257bb.gif" alt="Calculator Flip" width="800">
+</p>
 
 ## Notes
 
@@ -46,4 +45,3 @@ There were a couple of small things I would have liked to complete/fix, but I wo
 
 ## Acknowledgement
 Thanks to Prime Digital Academy who continue to teach me a staggering amount of info daily!
-
